@@ -9,13 +9,15 @@ import Financials from "../pages/Financials";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
-
+import Protfolio from "../pages/Protfolio";
 const BaseRouter = () => (
+
   <div>
     <Route exact path="/" component={Dashboard} />
-    <Route exact path="/dashboard" component={Dashboard} />
+    <Route exact path="/watchlist" component={Dashboard} />
+    <PrivateRoute exact path="/portfolio" component={Protfolio}/>
     <Route exact path="/chart" component={Chart} />
-    <Route exact path="/company" component={Company} />
+    <Route exact path="/news" component={Company} />
     <Route exact path="/financials" component={Financials} />
     <PrivateRoute exact path="/profile" component={Profile} />
     <Route exact path="/login" component={Login} />

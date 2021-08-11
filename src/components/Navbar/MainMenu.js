@@ -6,6 +6,7 @@ import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
+import RecentActorsIcon from '@material-ui/icons/RecentActors';
 import MenuIcon from '@material-ui/icons/Menu';
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import TimelineIcon from "@material-ui/icons/Timeline";
@@ -63,7 +64,7 @@ class MainMenu extends React.Component {
         </List>
         <Divider />
         <List>
-          {["Dashboard", "Chart", "Company", "Financials"].map((text, i) => (
+          {["Watchlist","Portfolio" ,"Chart", "News", "Financials"].map((text, i) => (
             <Button
               key={i}
               fullWidth
@@ -74,11 +75,13 @@ class MainMenu extends React.Component {
                 <ListItemIcon>
                   {i === 0 ? (
                     <DashboardIcon />
-                  ) : i === 1 ? (
+                  ):i=== 1 ?(
+                    <RecentActorsIcon/>
+                  ): i === 2 ? (
                     <TimelineIcon />
-                  ) : i === 2 ? (
-                    <DescriptionIcon />
                   ) : i === 3 ? (
+                    <DescriptionIcon />
+                  ) : i === 4 ? (
                     <AccountBalanceIcon />
                   ) : (
                     <span />

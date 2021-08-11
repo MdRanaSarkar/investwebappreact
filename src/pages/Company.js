@@ -1,6 +1,5 @@
 import React from "react";
 import SetNews from "../components/news/SetNews";
-import CompanyProfile from "../components/companyInfo/CompanyProfile";
 import Grid from "@material-ui/core/Grid";
 import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
@@ -22,9 +21,6 @@ class Company extends React.Component {
               justify="space-between"
               style={{ padding: 10, position: "relative", zIndex: 1 }}
             >
-              <Grid item xs={12}>
-                <CompanyProfile />
-              </Grid>
               <Grid item xs={12}>
                 <SetNews noOfNews={100} />
               </Grid>

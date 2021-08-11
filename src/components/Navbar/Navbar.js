@@ -11,6 +11,7 @@ import SubMenu from "./SubMenu";
 import SubMobileMenu from "./SubMobileMenu";
 import SubMenuSection from "./SubMenuSection";
 import { withRouter } from "react-router-dom";
+import { blue } from "@material-ui/core/colors";
 
 const styles = theme => ({
   navBarRoot: {
@@ -18,10 +19,13 @@ const styles = theme => ({
     flexnavBarGrow: 1
   },
   navBarGrow: {
-    flexnavBarGrow: 1
+    flexnavBarGrow: 1,
+ paddingLeft:"20%",
+
+    
   },
   navBarAppBarBgColor: {
-    backgroundColor: "#323232"
+    backgroundColor: blue
   },
   navBarSectionDesktop: {
     display: "none",
@@ -72,18 +76,35 @@ class Navbar extends React.Component {
     });
   };
 
+  componentDidUpdate() {
+    const { isAuthenticated, initialFund } = this.props;
+    if (isAuthenticated) {
+      if (this.props.funds === null) {
+        this.props.getFunds();
+      } else {
+        if (this.props.funds.length === 0) {
+          this.props.addFunds(initialFund);
+        }
+      }
+    }
+  }
+
+
   render() {
     const { anchorEl, mobileMoreAnchorEl } = this.state;
-    const { classes } = this.props;
+    const { classes,isAuthenticated, } = this.props;
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
     const origin = { vertical: "top", horizontal: "right" };
 
     return (
-      <div className={classes.navBarRoot}>
+      <div  className={classes.navBarRoot}>
         <AppBar className={classes.navBarAppBarBgColor} position="static">
           <Toolbar>
-            <MainMenu />
+       
+      
+      <MainMenu />
+
             <Tab />
             <SearchBar />
             <div className={classes.navBarGrow} />

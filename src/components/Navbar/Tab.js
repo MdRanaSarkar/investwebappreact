@@ -17,13 +17,15 @@ function getPage() {
   const rawURL = window.location.href;
   const re = /\/(?:[^/]+)$/;
   const resultArr = re.exec(rawURL);
-  if (resultArr === null) return "/dashboard";
+  if (resultArr === null) return "/project";
   return resultArr[0];
 }
 
 const tabsObj = {
-  "/dashboard": "dashboard",
-  "/chart": "chart",
+  "/project":"Duek and Gatenio invest",
+  "/watchlist": "dashboard",
+  "/protfolio":"protfolio",
+  "/news": "chart",
   "/company": "company",
   "/financials": "financials",
   "/profile": "profile"

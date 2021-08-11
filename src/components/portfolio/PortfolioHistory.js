@@ -5,7 +5,8 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import { currencyFormat } from "../../redux/utility";
-
+import { getQuote } from "../../redux/actions/iexAction";
+import { addFunds } from "../../redux/actions/fundsAction";
 const styles = {
   root: {
     padding: 10,
@@ -21,11 +22,16 @@ const styles = {
 };
 
 class PortfolioHistory extends React.Component {
+
+
+
   state = {
     options: {
       dateStyle: "short",
       timeStyle: "short",
-      hour12: false
+      hour12: false,
+      transaction: "",
+      quantity: ""
     }
   };
 
@@ -33,8 +39,30 @@ class PortfolioHistory extends React.Component {
     this.props.getTrades();
   }
 
+
+
+
+  // tradehistory = () => {
+  //   this.setState({ transaction: "SELL" });
+  //    const { quantity } = this.state;
+  //    const {tradeData, quote, funds } = this.props;
+  //    const transactionType = "SELL";
+  //    const price = tradeData.price;
+  //    const oldFund = funds[funds.length - 1].totalFund;
+  //    const amount = price * tradeData.quantity;
+  //    const totalFund = (oldFund + amount).toFixed(2);
+  //    const fund = {
+  //      transactionType,
+  //      amount,
+  //      totalFund
+  //    };
+  //    this.props.addFunds(fund);
+  //   alert(fund);
+  // };
+
   render() {
-    const { tradeData, classes } = this.props;
+    const { tradeData, classes,quote,funds, } = this.props;
+  
     const { options } = this.state;
     return (
       <div style={{ height: this.props.height }}>
@@ -66,6 +94,12 @@ class PortfolioHistory extends React.Component {
                   <Typography variant="subtitle1">Date</Typography>
                 </th>
                 <th className={classes.row}>
+                  <Typography variant="subtitle1">P/L</Typography>
+                </th>
+                {/* <th className={classes.row}>
+                  <Typography variant="subtitle1">P/L(total)</Typography>
+                </th> */}
+                <th className={classes.row}>
                   <Typography variant="subtitle1">Delete</Typography>
                 </th>
               </tr>
@@ -89,8 +123,38 @@ class PortfolioHistory extends React.Component {
                     {new Date(data.created_at).toLocaleString("en-US", options)}
                   </td>
                   <td className={classes.row}>
+                  {Object.keys(quote).length !== 0 ? (
+                        <span>
+                        <span style={{ color: "green" }}>
+                          {quote.latestPrice !== null
+                            ? currencyFormat((-(quote.latestPrice-data.price)*data.quantity*1.05), 2)
+                            : ""}
+                        </span>
+                      </span>
+                        ) : (
+                          ""
+                        )}
+                  </td>
+                  {/* <td className={classes.row}>
+
+                  {Object.keys(quote).length !== 0 ? (
+                        <span>
+                        <span style={{ color: "green" }}>
+                          {quote.latestPrice !== null
+                            ? currencyFormat(data.price * data.quantity-quote.latestPrice*data.quantity, 2)
+                            : ""}
+                        </span>
+                      </span>
+                        ) : (
+                          ""
+                        )}
+                  </td> */}
+                  <td className={classes.row}>
+                     
+           
                     <Button
                       onClick={this.props.deleteTrade.bind(this, data.id)}
+                
                     >
                       Delete
                     </Button>
@@ -105,18 +169,25 @@ class PortfolioHistory extends React.Component {
   }
 }
 
+
+
 const mapStateToProps = state => {
   return {
-    tradeData: state.tradeReducer.tradeData
+    tradeData: state.tradeReducer.tradeData,
+    quote: state.iexReducer.quote,
+    funds: state.fundsReducer.funds
   };
 };
 
 const mapDispatchToProps = {
   getTrades,
-  deleteTrade
+  deleteTrade,
+  addFunds
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(withStyles(styles)(PortfolioHistory));
+
+

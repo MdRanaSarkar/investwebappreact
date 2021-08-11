@@ -66,7 +66,7 @@ class FundInput extends React.Component {
               justifyContent: "center"
             }}
           >
-            >
+            
             <Button
               onClick={handleClose}
               color="primary"

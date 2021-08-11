@@ -96,7 +96,7 @@ class Profile extends React.Component {
               </table>
             </Paper>
           </Grid>
-          <Paper
+          {/* <Paper
             elevation={2}
             style={{
               margin: 10,
@@ -135,7 +135,7 @@ class Profile extends React.Component {
             <Grid item style={{ height: 350, overflow: "auto" }}>
               <FundsHistory />
             </Grid>
-          </Paper>
+          </Paper> */}
         </Grid>
       </div>
     );

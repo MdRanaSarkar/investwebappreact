@@ -28,10 +28,10 @@ class Dashboard extends React.Component {
               spacing={8}
               wrap="wrap"
               justify="space-between"
-              style={{ padding: 10, position: "relative", zIndex: 1 }}
+              style={{ padding: 10, position: "relative", zIndex: 1, backgroundColor:"" }}
             >
-              <Grid item xs={12}>
-                <SetChart height={chartHeight} />
+              <Grid item xs={12} style={{backgroundColor:"#383737"}}>
+                <SetChart height={chartHeight}  />
               </Grid>
               <Grid item md={6}>
                 <FinancialStatements type="Advanced Stats" height={statsHeight} />
