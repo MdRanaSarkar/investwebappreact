@@ -51,7 +51,7 @@ class News extends React.Component {
           <b>NEWS</b>
         </Typography>
         {news.map((data, i) => (
-          <Card key={i} className={classes.card}>
+          <Card key={i} className={classes.card} style={{backgroundColor:"#cfbacd"}}>
             <Grid item md={2}>
               <CardMedia
                 component="img"

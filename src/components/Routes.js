@@ -10,10 +10,11 @@ import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Protfolio from "../pages/Protfolio";
+import Home from "../pages/Home";
 const BaseRouter = () => (
 
   <div>
-    <Route exact path="/" component={Dashboard} />
+    <Route exact path="/" component={Home} />
     <Route exact path="/watchlist" component={Dashboard} />
     <PrivateRoute exact path="/portfolio" component={Protfolio}/>
     <Route exact path="/chart" component={Chart} />

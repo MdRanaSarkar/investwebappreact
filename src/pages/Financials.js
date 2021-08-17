@@ -17,12 +17,13 @@ class Financials extends React.Component {
               height: "95vh",
               overflowY: "scroll",
               marginLeft: 20,
-              marginRight: 20
+              marginRight: 20,
+              backgroundColor:"#b3adb2"
             }}
           >
             <Title />
             <div>
-              <FinancialStatements />
+              <FinancialStatements/>
             </div>
           </Paper>
         ) : (

@@ -41,7 +41,7 @@ class SetNews extends React.Component {
     return (
       <React.Fragment>
         {news.articles !== undefined ? (
-          <Paper elevation={0}>
+          <Paper elevation={0} style={{backgroundColor:"#c6d9ba"}}>
               <News height={height} {...this.state}/>
           </Paper>
         ) : (

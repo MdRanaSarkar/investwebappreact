@@ -51,7 +51,7 @@ class MainMenu extends React.Component {
     const { open } = this.state;
 
     const sideList = (
-      <div className={classes.list}>
+      <div className={classes.list} style={{backgroundColor:"#d3e3ed"}}>
         <List>
           <Button disabled>
             <ListItem>

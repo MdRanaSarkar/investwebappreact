@@ -22,7 +22,7 @@ function getPage() {
 }
 
 const tabsObj = {
-  "/project":"Duek and Gatenio invest",
+  "/project":"CLB Market",
   "/watchlist": "dashboard",
   "/protfolio":"protfolio",
   "/news": "chart",

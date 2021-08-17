@@ -1,0 +1,12 @@
+.Frow{
+
+    display: flex;
+}
+
+.col{
+    flex: 1;
+}
+
+#picharid{
+   padding-top: 30px;
+}

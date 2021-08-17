@@ -80,7 +80,7 @@ class SetChart extends React.Component {
     return (
       <React.Fragment style={{backgroundColor:"#383737"}}>
         {chart.length !== 0 || intraday.length !== 0 ? (
-          <Paper style={{ padding: 10 }} elevation={2}>
+          <Paper style={{ padding: 10,backgroundColor:"#e6e6e6" }} elevation={4}>
             <ChartSelect
               {...this.state}
               {...this.props}

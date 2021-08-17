@@ -19,7 +19,8 @@ class Dashboard extends React.Component {
               height: "95vh",
               overflowY: "scroll",
               paddingLeft: 20,
-              paddingRight: 20
+              paddingRight: 20,
+              backgroundColor:"#ffffff"
             }}
           >
             <Title />

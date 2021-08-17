@@ -12,7 +12,7 @@ class Company extends React.Component {
     return (
       <div>
         {this.props.multi !== null ? (
-          <Paper elevation={0} style={{ height: "95vh", overflowY: "scroll" }}>
+          <Paper elevation={0} style={{ height: "95vh", overflowY: "scroll",backgroundColor:"#cbccc4" }}>
             <Title />
             <Grid
               container

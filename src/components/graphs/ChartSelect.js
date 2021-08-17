@@ -45,7 +45,8 @@ class ChartSelect extends React.Component {
             justifyContent: "space-between",
             flexWrap: "wrap",
             paddingLeft: 50,
-            paddingRight: 50
+            paddingRight: 50,
+          
           }}
         >
           <Range

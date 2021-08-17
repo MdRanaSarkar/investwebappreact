@@ -9,6 +9,7 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <Platform />
+   
       </Provider>
     );
   }

@@ -68,7 +68,7 @@ class FundsHistory extends React.Component {
                 </td>
                 <td className={classes.row}>
                   <Button onClick={this.props.deleteFunds.bind(this, data.id)}>
-                    Delete
+                    Close
                   </Button>
                 </td>
               </tr>
